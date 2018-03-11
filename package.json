@@ -8,7 +8,7 @@
     "url": "https://zanyuyu.com/"
   },
   "license": "MIT",
-  "main": "lib/vue-cascade.min.js",
+  "main": "lib/v-cascade.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/zanseven007/v-cascade"
