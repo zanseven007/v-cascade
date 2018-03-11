@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <input class="select select-location" v-model="locationValue" type="text" name="location" id="location" placeholder="地区选择器" @click="open('locationModal',$event)">
-    <v-cas
+    <v-cascade
       v-model="locationModal"
       :data="location"
       :title="['省份','城市','区县']"
@@ -9,9 +9,9 @@
       @success="locationSuccess"
       @cancel="cancel"
     >
-    </v-cas>
+    </v-cascade>
     <input class="select select-job" v-model="jobValue" type="text" name="job" id="job" placeholder="职称选择器" @click="open('jobModal',$event)">
-    <v-cas
+    <v-cascade
       v-model="jobModal"
       :data="job"
       :title="['职称','职称']"
@@ -19,9 +19,9 @@
       @success="jobSuccess"
       @cancel="cancel"
     >
-    </v-cas>
+    </v-cascade>
     <input class="select select-location-search" v-model="locationSearchValue" type="text" name="locationSearch" id="locationSearch" placeholder="本地搜索" @click="open('locationSearchModal',$event)">
-    <v-cas
+    <v-cascade
       filterable
       v-model="locationSearchModal"
       :data="locationSearch"
@@ -30,9 +30,9 @@
       @success="locationSearchSuccess"
       @cancel="cancel"
     >
-    </v-cas>
+    </v-cascade>
     <input class="select select-remote" v-model="remoteValue" type="text" name="Remote" id="Remote" placeholder="远程搜索" @click="open('remoteModal',$event)">
-    <v-cas
+    <v-cascade
       filterable
       remote
       :data="remoteData"
@@ -45,7 +45,7 @@
       @success="RemoteSuccess"
       @cancel="cancel"
     >
-    </v-cas>
+    </v-cascade>
   </div>
 </template>
 

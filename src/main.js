@@ -2,10 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import app from './App'
-import cas from './cascade.js'
+import cascade from './install.js'
 
 // register of vue-cascade
-Vue.use(cas)
+Vue.use(cascade)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

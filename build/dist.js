@@ -33,6 +33,6 @@ rm(path.join(config.dist.assetsRoot), err => {
     }
 
     console.log(chalk.cyan('  Build complete.\n'))
-    console.log(chalk.cyan('  find it in ./dist\n'))
+    console.log(chalk.cyan('  find it in ./dist/v-cascade.min.js\n'))
   })
 })

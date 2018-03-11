@@ -1,5 +1,5 @@
 
-import vueCascade from './components/vue-cascade.vue'
+import vueCascade from './components/v-cascade.vue'
 
 const Cascade = {
   install (Vue, options) {

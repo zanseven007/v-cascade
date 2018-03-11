@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'v-cas',
+  name: 'v-cascade',
   props: {
     title: {
       type: Array

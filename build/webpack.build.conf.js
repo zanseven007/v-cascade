@@ -2,12 +2,12 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/cascade.js',
+  entry: './src/install.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',
-    filename: 'vue-cascade.min.js',
-    library: 'vueCascade',
+    filename: 'v-cascade.min.js',
+    library: 'vCascade',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
