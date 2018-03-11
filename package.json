@@ -1,6 +1,6 @@
 {
   "name": "v-cascade",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lovely cascade selector with vue.js",
   "author": {
     "name": "zanseven007",
@@ -8,10 +8,13 @@
     "url": "https://zanyuyu.com/"
   },
   "license": "MIT",
-  "main": "dist/vue-cascade.min.js",
+  "main": "lib/vue-cascade.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/zanseven007/v-cascade"
+  },
+  "bugs": {
+    "url": "https://github.com/zanseven007/v-cascade/issues"
   },
   "keywords": [
     "vue",

@@ -4,8 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: './src/install.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, '../lib'),
+    publicPath: '/lib/',
     filename: 'v-cascade.min.js',
     library: 'vCascade',
     libraryTarget: 'umd',
