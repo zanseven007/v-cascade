@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <h1>V-cascade</h1>
-    <h3>🍭 Wow, such a beautiful cascade selector.</h3>
+    <h3>🍭 Wow, such a beautiful cascade selector. view on <a href="https://github.com/zanseven007/v-cascade">Github</a></h3>
     <h4>
       <a href="https://www.npmjs.com/package/v-cascade">
         <img src="https://img.shields.io/npm/v/v-cascade.svg?style=flat-square" alt="flat-square">
@@ -68,6 +68,7 @@
           <code class="vue">
     // html
     &lt;v-cascade
+      scrollable
       v-model="jobModal"
       :data="job"
       :title="['职称','职称']"
@@ -102,6 +103,7 @@
       </code>
       </pre>
       <v-cascade
+        scrollable
         v-model="jobModal"
         :data="job"
         :title="['职称','职称']"
@@ -400,5 +402,11 @@ h3 {
   color: #999;
   font-weight: normal;
   letter-spacing: 1px;
+  a {
+    color: #42b983;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 </style>

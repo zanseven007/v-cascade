@@ -1,48 +1,54 @@
 <template>
   <div :class="cascadeClasses">
-    <div class="cascade__mask" v-show="visible" @click.stop="close()"></div>
-    <div class="cascade__content" v-show="visible">
-      <div class="cascade__header">
-        <div class="cascade__back" @click="back()">
-          <i class="iconfont icon-back"></i>
+    <transition name="fade">
+      <div class="cascade__mask" v-show="visible" @click.stop="close()"></div>
+    </transition>
+    <transition name="slide">
+      <div class="cascade__content" v-show="visible">
+        <div class="cascade__header">
+          <div class="cascade__back" @click.stop="back()">
+            <i class="iconfont icon-back"></i>
+          </div>
+          <div class="cascade__title">
+            {{titleName}}
+          </div>
         </div>
-        <div class="cascade__title">
-          {{titleName}}
+        <div class="cascade__search" v-if="filterable">
+          <input
+            type="text"
+            class="cascade__search--input"
+            v-model="query"
+            placeholder="请输入您想搜索的内容"
+            autocomplete="off"
+            spellcheck="false"
+            ref="input"
+            v-focus="autoFocus"
+          >
+          <div class="cascade__search--comfirm" v-show="showComfirm" @click="comfirm">
+            确认
+          </div>
+        </div>
+        <div class="cascade__list">
+          <div class="cascade__item" v-if="isMatch(item.label)" :key="item.key" v-for="item in casData" @click.stop= "selectItem(item,casData)">
+              <p>{{item.label}}</p>
+          </div>
+          <div class="cascade__loading" v-show="remote && loading">
+            <img src="../assets/loading.gif" alt="loading">
+          </div>
+          <div class="cascade__noSearchResultTip" v-show="showComfirm && query && !loading">
+            没有找到相关内容,点击确定使用自定义内容~
+          </div>
         </div>
       </div>
-      <div class="cascade__search" v-if="filterable">
-        <input
-          type="text"
-          class="cascade__search--input"
-          v-model="query"
-          placeholder="请输入您想搜索的内容"
-          autocomplete="off"
-          spellcheck="false"
-          ref="input"
-          v-focus="autoFocus"
-        >
-        <div class="cascade__search--comfirm" v-show="showComfirm" @click="comfirm">
-          确认
-        </div>
-      </div>
-      <div class="cascade__list">
-        <div class="cascade__item" v-if="isMatch(item.label)" :key="item.key" v-for="item in casData" @click.stop= "selectItem(item,casData)">
-            <p>{{item.label}}</p>
-        </div>
-        <div class="cascade__loading" v-show="remote && loading">
-          <img src="../assets/loading.gif" alt="loading">
-        </div>
-        <div class="cascade__noSearchResultTip" v-show="showComfirm && query && !loading">
-          没有找到相关内容,点击确定使用自定义内容~
-        </div>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import ScrollbarMixins from './scrollbar'
 export default {
   name: 'v-cascade',
+  mixins: [ ScrollbarMixins ],
   props: {
     title: {
       type: Array
@@ -61,6 +67,10 @@ export default {
     autoFocus: {
       type: Boolean,
       default: true
+    },
+    scrollable: {
+      type: Boolean,
+      default: false
     },
     filterable: {
       type: Boolean,
@@ -167,9 +177,14 @@ export default {
     value (val) {
       this.visible = val
       if (val) {
+        if (!this.scrollable) {
+          this.addScrollEffect()
+        }
         if (this.remote && !this.casData.length) {
           this.remoteMethod(this.query)
         }
+      } else {
+        this.removeScrollEffect()
       }
     },
     data (val) {
@@ -178,6 +193,13 @@ export default {
     loading (val) {
       if (val) {
         this.casData = []
+      }
+    },
+    scrollable (val) {
+      if (!val) {
+        this.addScrollEffect()
+      } else {
+        this.removeScrollEffect()
       }
     },
     query (val) {
@@ -321,5 +343,18 @@ export default {
     border-top: 1px solid #efefef;
     height: calc(100vh - 81px);
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .22s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: all .22s ease-in-out;
+}
+.slide-enter, .slide-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
 }
 </style>

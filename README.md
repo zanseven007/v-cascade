@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/dt/v-cascade.svg?style=flat-square)](https://www.npmjs.com/package/v-cascade)
 [![npm](https://img.shields.io/npm/l/v-cascade.svg?style=flat-square)](https://github.com/zanseven007/v-cascade/blob/master/LICENSE)
 
-a lovely component of cascade selector with vue.js
+a lovely component of cascade selector with vue.js [中文文档](https://github.com/zanseven007/v-cascade/README-CN.md)
 
 ### Introduction
 
@@ -53,13 +53,14 @@ Vue.use(vCascade)
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | v-modal| Boolean | false | Cascade display and hide |
-| data | Array | [] | Cascade list data, Must use a fixed format.{'key':key,'label','children':[]},children is a option key|
+| data | Array | [] | Cascade list data, Must use a fixed format.{'key':key,'label','children':[]},`children` is a option key|
 | title | Array | [] | Cascade top title |
 | addClass | String | '' | Add an extra outer class to the cascade|
 | filterable | Boolean | false | enable the cascade's local search,if it is true,there are a input of search in cascade  |
 | remote | Boolean | false | enable the cascade's remote search,if this item is true, you need to add a `remoteMethod` to the cascade to get the remote data|
 | remoteMethod | Function | none | A function to get remote data,you need format the reponse data to accepted format of the cascade (See `data` prop for details) |
 | loading | Boolean | false | enable the loader display or hide |
+| scrollable | Boolean | false | whether the document page can be scrolled |
 
 ### Events
 
@@ -67,11 +68,11 @@ Vue.use(vCascade)
 | ---- | ------------ | ------ |
 | success | Callback function after successful cascade selection  | Json of Selected value |
 | cancel | Callback function after cancel cascade selection  | none |
-| on-query-change | Boolean  | query value |
+| on-query-change | Callback function after search query changed  | query value |
 
 ## Todo
 
-- [ ] Transitions, Animations
+- [x] Transitions, Animations
 - [ ] Multiple
 - [ ] Globle event
 - [ ] ...

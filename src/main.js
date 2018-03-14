@@ -5,7 +5,7 @@ import app from './App'
 import cascade from './install.js'
 import VueHighlightJS from 'vue-highlightjs'
 
-// register of vue-cascade
+// register of v-cascade
 Vue.use(cascade)
 Vue.use(VueHighlightJS)
 Vue.config.productionTip = false
