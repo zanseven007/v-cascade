@@ -1,6 +1,6 @@
 <template>
   <div :class="cascadeClasses">
-    <div class="cascade__mask" v-show="visible" @click="close()"></div>
+    <div class="cascade__mask" v-show="visible" @click.stop="close()"></div>
     <div class="cascade__content" v-show="visible">
       <div class="cascade__header">
         <div class="cascade__back" @click="back()">
@@ -26,13 +26,13 @@
         </div>
       </div>
       <div class="cascade__list">
-        <div class="cascade__item" v-if="isMatch(item.label)" :key="item.key" v-for="item in casData" @click= "selectItem(item,casData)">
+        <div class="cascade__item" v-if="isMatch(item.label)" :key="item.key" v-for="item in casData" @click.stop= "selectItem(item,casData)">
             <p>{{item.label}}</p>
         </div>
         <div class="cascade__loading" v-show="remote && loading">
           <img src="../assets/loading.gif" alt="loading">
         </div>
-        <div class="cascade__noSearchResultTip" v-show="showComfirm && query">
+        <div class="cascade__noSearchResultTip" v-show="showComfirm && query && !loading">
           没有找到相关内容,点击确定使用自定义内容~
         </div>
       </div>
@@ -158,6 +158,8 @@ export default {
     showComfirm () {
       if (!this.remote) {
         return this.casData.find((item) => item.label.indexOf(this.query) > -1) === undefined
+      } else {
+        return !this.casData.length
       }
     }
   },
@@ -166,7 +168,7 @@ export default {
       this.visible = val
       if (val) {
         if (this.remote && !this.casData.length) {
-          this.remoteData(this.query)
+          this.remoteMethod(this.query)
         }
       }
     },
@@ -179,9 +181,11 @@ export default {
       }
     },
     query (val) {
-      if (this.remote && this.remoteMethod) {
-        this.remoteMethod(val)
+      if (this.remote || this.filterable) {
         this.$emit('on-query-change', val)
+        if (this.remoteMethod) {
+          this.remoteMethod(val)
+        }
       }
     }
   },
@@ -203,7 +207,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+@import "../style/reset";
+@import "../style/common";
 .cascade {
   &__mask {
     position: fixed;
@@ -237,8 +243,9 @@ export default {
     width: 100%;
     display: flex;
     justify-content: center;
-    text-indent: -20px;
     font-weight: bold;
+    font-size: 16px;
+    text-indent: -20px;
   }
   &__search {
     height: 40px;
@@ -247,6 +254,7 @@ export default {
     &--input {
       border: none;
       width: 100%;
+      font-size: 13px;
       text-align: center;
       -webkit-appearance: none;
       outline: none;

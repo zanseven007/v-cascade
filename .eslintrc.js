@@ -24,6 +24,7 @@ module.exports = {
     // 'semi': ['error','always'],
     // 'space-before-function-paren':'off',
     // allow debugger during development
+    'one-var': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
 }

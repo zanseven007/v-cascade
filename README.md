@@ -52,7 +52,7 @@ Vue.use(vCascade)
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| v-modal| Boolean | false | Cascade display and hide |
+| v-modal| Boolean | false | Cascade display and hide |
 | data | Array | [] | Cascade list data, Must use a fixed format.{'key':key,'label','children':[]},children is a option key|
 | title | Array | [] | Cascade top title |
 | addClass | String | '' | Add an extra outer class to the cascade|
@@ -61,9 +61,17 @@ Vue.use(vCascade)
 | remoteMethod | Function | none | A function to get remote data,you need format the reponse data to accepted format of the cascade (See `data` prop for details) |
 | loading | Boolean | false | enable the loader display or hide |
 
+### Events
+
+| Name | Description  | return |
+| ---- | ------------ | ------ |
+| success | Callback function after successful cascade selection  | Json of Selected value |
+| cancel | Callback function after cancel cascade selection  | none |
+| on-query-change | Boolean  | query value |
+
 ## Todo
 
-- [ ] Transitions
+- [ ] Transitions, Animations
 - [ ] Multiple
 - [ ] Globle event
 - [ ] ...
