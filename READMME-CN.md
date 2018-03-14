@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/dt/v-cascade.svg?style=flat-square)](https://www.npmjs.com/package/v-cascade)
 [![npm](https://img.shields.io/npm/l/v-cascade.svg?style=flat-square)](https://github.com/zanseven007/v-cascade/blob/master/LICENSE)
 
-一个可爱的级联选择器 [Eng docs](https://github.com/zanseven007/v-cascade/README.md)
+一个可爱的级联选择器 [Eng docs](https://github.com/zanseven007/v-cascade)
 
 ### 介绍
 

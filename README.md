@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/dt/v-cascade.svg?style=flat-square)](https://www.npmjs.com/package/v-cascade)
 [![npm](https://img.shields.io/npm/l/v-cascade.svg?style=flat-square)](https://github.com/zanseven007/v-cascade/blob/master/LICENSE)
 
-a lovely component of cascade selector with vue.js [中文文档](https://github.com/zanseven007/v-cascade/README-CN.md)
+a lovely component of cascade selector with vue.js [中文文档](https://github.com/zanseven007/v-cascade/blob/master/READMME-CN.md)
 
 ### Introduction
 
