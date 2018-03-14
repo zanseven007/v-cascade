@@ -3,15 +3,20 @@
 [![npm](https://img.shields.io/npm/dt/v-cascade.svg?style=flat-square)](https://www.npmjs.com/package/v-cascade)
 [![npm](https://img.shields.io/npm/l/v-cascade.svg?style=flat-square)](https://github.com/zanseven007/v-cascade/blob/master/LICENSE)
 
-一个可爱的级联选择器 [Eng docs](https://github.com/zanseven007/v-cascade)
+一个可爱的级联选择器(跨平台：PC，Mobile) [Eng docs](https://github.com/zanseven007/v-cascade)
 
 ### 介绍
 
 [例子](https://zanseven007.github.io/v-cascade/)
 
-组件截图
+### 组件截图
 
-待补充
+#### 地区选择
+![Screenshot-basic](http://images.zanyuyu.com/v-cascade-screenshot-1.gif)
+
+#### 远程搜索
+![Screenshot-remote](http://images.zanyuyu.com/v-cascade-screenshot-2.gif)
+
 
 ## 安装
 

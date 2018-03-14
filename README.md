@@ -3,15 +3,19 @@
 [![npm](https://img.shields.io/npm/dt/v-cascade.svg?style=flat-square)](https://www.npmjs.com/package/v-cascade)
 [![npm](https://img.shields.io/npm/l/v-cascade.svg?style=flat-square)](https://github.com/zanseven007/v-cascade/blob/master/LICENSE)
 
-a lovely component of cascade selector with vue.js [中文文档](https://github.com/zanseven007/v-cascade/blob/master/READMME-CN.md)
+A lovely component of cascade selector with vue.js (Support both of PC and Mobile) [中文文档](https://github.com/zanseven007/v-cascade/blob/master/READMME-CN.md)
 
 ### Introduction
 
 [Demo](https://zanseven007.github.io/v-cascade/)
 
-Screenshot
+### Screenshot
 
-待补充
+#### basic-selector
+![Screenshot-basic](http://images.zanyuyu.com/v-cascade-screenshot-1.gif)
+
+#### remote-selector
+![Screenshot-remote](http://images.zanyuyu.com/v-cascade-screenshot-2.gif)
 
 ## Install
 
