@@ -36,3 +36,5 @@ export function getScrollBarSize () {
   }
   return cached
 }
+
+export const isMobile = /Mobile/i.test(navigator.userAgent)

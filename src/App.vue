@@ -368,7 +368,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import "./style/reset";
 .app {
   text-align: center;
@@ -401,6 +401,7 @@ h3 {
   margin-bottom: 10px;
   color: #999;
   font-weight: normal;
+  font-size: 18px;
   letter-spacing: 1px;
   a {
     color: #42b983;

@@ -27,8 +27,6 @@ $ npm install v-cascade --save
 
 // cdn
 <script src="https://unpkg.com/v-cascade/lib/v-cascade.min.js"></script>
-
-
 ```
 
 ## Usage

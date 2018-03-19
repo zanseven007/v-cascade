@@ -1,5 +1,5 @@
 import {
-  getScrollBarSize
+  getScrollBarSize, isMobile
 } from './util'
 export default {
   methods: {
@@ -22,14 +22,38 @@ export default {
     resetScrollBar () {
       document.body.style.paddingRight = ''
     },
+    fixedBody () {
+      let body = document.body
+      let html = document.documentElement
+      let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+      body.style.cssText += 'position:fixed;top:-' + scrollTop + 'px;'
+      body.classList.add('v-cascade-open')
+      html.classList.add('v-cascade-open')
+    },
+    looseBody () {
+      let body = document.body
+      let html = document.documentElement
+      let top = body.style.top
+      body.style.position = ''
+      body.scrollTop = document.documentElement.scrollTop = -parseInt(top)
+      body.style.top = ''
+      body.classList.remove('v-cascade-open')
+      html.classList.remove('v-cascade-open')
+    },
     addScrollEffect () {
       this.checkScrollBar()
       this.setScrollBar()
+      if (isMobile) {
+        this.fixedBody()
+      }
       document.body.style.overflow = 'hidden'
     },
     removeScrollEffect () {
-      document.body.style.overflow = ''
       this.resetScrollBar()
+      if (isMobile) {
+        this.looseBody()
+      }
+      document.body.style.overflow = ''
     }
   }
 }

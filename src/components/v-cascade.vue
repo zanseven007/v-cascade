@@ -247,7 +247,7 @@ export default {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100%;
+    bottom: 0;
     background: #fff;
     border-left: 1px solid #efefef;
   }
@@ -358,3 +358,10 @@ export default {
   opacity: 0;
 }
 </style>
+<style lang="scss">
+.v-cascade-open{
+  height: 100%;
+  width: 100%;
+}
+</style>
+
