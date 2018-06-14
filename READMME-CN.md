@@ -55,7 +55,7 @@ Vue.use(vCascade)
 
 | 字段名 | 类型 | 默认值 | 描述 |
 | ---- | ---- | ------- | ----------- |
-| v-modal| Boolean | false | 控制组件显示和隐藏 |
+| v-model| Boolean | false | 控制组件显示和隐藏 |
 | data | Array | [] | 组件的数据字段，必须使用固定的 json 格式，如{'key':key,'label','children':[]}, `children` 是一个可选择的 key 值|
 | title | Array | [] | 组件顶部显示的标题 |
 | addClass | String | '' | 为组件添加一个额外的 class |

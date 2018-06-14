@@ -54,7 +54,7 @@ Vue.use(vCascade)
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| v-modal| Boolean | false | Cascade display and hide |
+| v-model| Boolean | false | Cascade display and hide |
 | data | Array | [] | Cascade list data, Must use a fixed format.{'key':key,'label','children':[]},`children` is a option key|
 | title | Array | [] | Cascade top title |
 | addClass | String | '' | Add an extra outer class to the cascade|
