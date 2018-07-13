@@ -63,6 +63,9 @@ Vue.use(vCascade)
 | remoteMethod | Function | none | A function to get remote data,you need format the reponse data to accepted format of the cascade (See `data` prop for details) |
 | loading | Boolean | false | enable the loader display or hide |
 | scrollable | Boolean | false | whether the document page can be scrolled |
+| placeholder | String | Please enter... | default placeholder for the search box |
+| noFoundStr | String | Nothing found, click Button to use custom content | No search returns a copy when the result is empty |
+| spLevel | Number | 9999 | Maximum number of levels selected |
 
 ### Events
 

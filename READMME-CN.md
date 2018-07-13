@@ -64,6 +64,9 @@ Vue.use(vCascade)
 | remoteMethod | Function | none | 获取远程数据并且获取的数据也需要遵从 `data` 的格式规范(详情看 `data` 属性的描述，或看远程搜索的例子代码) |
 | loading | Boolean | false | 显示和隐藏 loading 图标 |
 | scrollable | Boolean | false | 背景页面是否可以滚动 |
+| placeholder | String | Please enter... | 指定没有搜索框的默认值 |
+| noFoundStr | String | Nothing found, click Button to use custom content | 指定没有搜索返回结果为空时的文案 |
+| spLevel | Number | 9999 | 指定最多选择的层级数 |
 
 ### Events
 

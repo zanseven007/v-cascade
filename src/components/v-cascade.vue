@@ -18,7 +18,7 @@
             type="text"
             class="cascade__search--input"
             v-model="query"
-            placeholder="请输入您想搜索的内容"
+            :placeholder="placeholder"
             autocomplete="off"
             spellcheck="false"
             ref="input"
@@ -29,14 +29,14 @@
           </div>
         </div>
         <div class="cascade__list">
-          <div class="cascade__item" v-if="isMatch(item.label)" :key="item.key" v-for="item in casData" @click.stop= "selectItem(item,casData)">
+          <div class="cascade__item" v-if="isMatch(item.label)" :key="item.key" v-for="item in casData" @click.stop="selectItem(item,casData)">
               <p>{{item.label}}</p>
           </div>
           <div class="cascade__loading" v-show="remote && loading">
             <img src="../assets/loading.gif" alt="loading">
           </div>
           <div class="cascade__noSearchResultTip" v-show="showComfirm && query && !loading">
-            没有找到相关内容,点击确定使用自定义内容~
+            {{noFoundStr}}
           </div>
         </div>
       </div>
@@ -59,6 +59,18 @@ export default {
     },
     addClass: {
       type: String
+    },
+    spLevel: {
+      type: Number,
+      default: 9999
+    },
+    placeholder: {
+      type: String,
+      default: 'Please enter...'
+    },
+    noFoundStr: {
+      type: String,
+      default: 'Nothing found, click Button to use custom content'
     },
     data: {
       type: Array,
@@ -101,14 +113,13 @@ export default {
   },
   methods: {
     selectItem (item, casData) {
-      // 删除上一次的选择
+      // Delete previous selection
       this.path.length = this.level - 1
       this.pathName.length = this.level - 1
 
       this.path.push(item.key)
       this.pathName.push(item.label)
-
-      if (item.children) {
+      if (item.children && item.children.length && this.level < this.spLevel) {
         this.query = ''
         this[`data_${this.level}`] = casData
         this.level++
@@ -119,12 +130,13 @@ export default {
       }
     },
     comfirm () {
-      // 删除上一次的选择
+      // Delete previous selection
       this.path.length = this.level - 1
       this.pathName.length = this.level - 1
 
       this.path.push('-1')
       this.pathName.push(this.query)
+
       this.$emit('input', false)
       this.$emit('success', { path: this.path, pathName: this.pathName })
     },
@@ -154,7 +166,7 @@ export default {
   created () {},
   computed: {
     titleName () {
-      return this.title[this.level - 1] ? this.title[this.level - 1] : '请选择'
+      return this.title[this.level - 1] ? this.title[this.level - 1] : 'Title'
     },
     cascadeClasses () {
       return [
@@ -239,6 +251,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 98;
     background: rgba(0, 0, 0, 0.3);
   }
   &__content {
@@ -248,6 +261,7 @@ export default {
     top: 0;
     right: 0;
     bottom: 0;
+    z-index: 99;
     background: #fff;
     border-left: 1px solid #efefef;
   }
