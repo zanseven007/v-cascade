@@ -57,6 +57,9 @@ export default {
       type: Boolean,
       default: false
     },
+    defaultItem: {
+      type: Array
+    },
     addClass: {
       type: String
     },
@@ -129,6 +132,40 @@ export default {
         this.$emit('success', { path: this.path, pathName: this.pathName })
       }
     },
+    /**
+     * @param {Array} item Item array.
+     * @param item[n] Any number of item keys as many as necessary.
+     */
+    updateDefaultItem (item) {
+      if (!this.defaultItem) return
+      this.path = []
+      this.pathName = []
+      for (const index of item) {
+        this.path.push(index)
+        const pathName = this.getPathName(index)
+        this.pathName.push(pathName)
+      }
+    },
+    getPathName (val) {
+      for (const item of this.casData) {
+        for (const key in item) {
+          if (key === 'key' && item[key] + '' === val + '') {
+            return item.label
+          } else if (key === 'children') {
+            for (const child of item[key]) {
+              for (const childKey in child) {
+                if (
+                  childKey === 'key' &&
+                  child[childKey] + '' === val + ''
+                ) {
+                  return child.label
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     comfirm () {
       // Delete previous selection
       this.path.length = this.level - 1
@@ -163,7 +200,9 @@ export default {
       }
     }
   },
-  created () {},
+  created () {
+    this.updateDefaultItem(this.defaultItem)
+  },
   computed: {
     titleName () {
       return this.title[this.level - 1] ? this.title[this.level - 1] : 'Title'
@@ -221,6 +260,12 @@ export default {
           this.remoteMethod(val)
         }
       }
+    },
+    defaultItem: {
+      handler (val) {
+        this.updateDefaultItem(val)
+      },
+      deep: true
     }
   },
   directives: {
